@@ -327,6 +327,81 @@ class Othello
         @board[row][col] = @disc
 
         # TO DO: COMPLETE THIS PART OF THE METHOD
+        c = 1
+        notDisc = ""
+
+        if @disc == "B"
+            notDisc = "W"
+        end
+        
+        if @disc == "W"
+            notDisc = "B"
+        end
+
+        #Top
+        if canMoveTop(row,col,@disc)
+            while @board[row-c][col] == notDisc
+                @board[row-c][col] = @disc
+                c = c + 1
+            end
+            c = 1 #reset c
+        end
+        #Top Right
+        if canMoveTopRight(row,col,@disc)
+            while @board[row-c][col+c] == notDisc
+                @board[row-c][col+c] = @disc
+                c = c + 1
+            end
+            c = 1 #reset c
+        end
+        #Top Left
+        if canMoveTopLeft(row,col,@disc)
+            while @board[row-c][col-c] == notDisc
+                @board[row-c][col-c] = @disc
+                c = c + 1
+            end
+            c = 1 #reset c
+        end
+        #Left
+        if canMoveLeft(row,col,@disc)
+            while @board[row][col-c] == notDisc
+                @board[row][col-c] = @disc
+                c = c + 1
+            end
+            c = 1 #reset c
+        end
+        #Right
+        if canMoveRight(row,col,@disc)
+            while @board[row][col+c] == notDisc
+                @board[row][col+c] = @disc
+                c = c + 1
+            end
+            c = 1 #reset c
+        end
+        #Bottom Left
+        if canMoveBottomLeft(row,col,@disc)
+            while @board[row+c][col-c] == notDisc
+                @board[row+c][col-c] = @disc
+                c = c + 1
+            end
+            c = 1 #reset c
+        end
+        #Bottom
+        if canMoveBottom(row,col,@disc)
+            while @board[row+c][col] == notDisc
+                @board[row+c][col] = @disc;
+                c = c + 1
+            end
+            c = 1 #reset c
+        end
+        #Bottom Right
+        if canMoveBottomRight(row,col,@disc)
+            while @board[row+c][col+c] == notDisc
+                @board[row+c][col+c] = @disc;
+                c = c + 1
+            end
+            c = 1 #reset c
+        end
 
         # DO NOT DELETE - prepares for next turn if game is not over
         if (!isGameOver())
@@ -401,5 +476,4 @@ class Othello
         end
         return str;
     end
-
 end
