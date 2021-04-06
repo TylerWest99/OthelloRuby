@@ -101,7 +101,7 @@ class Othello
                 if @board[row-c][col] == disc
                     return true
                 end
-                c++
+                c = c + 1
             end
         end
         return false
@@ -126,7 +126,7 @@ class Othello
                 if @board[row-c][col+c] == disc
                     return true
                 end
-                c++
+                c = c + 1
             end
         end
         return false
@@ -151,7 +151,7 @@ class Othello
                 if @board[row-c][col-c] == disc
                     return true
                 end
-                c++
+                c = c + 1
             end
         end
         return false
@@ -176,7 +176,7 @@ class Othello
                 if @board[row][col-c] == disc
                     return true
                 end
-                c++
+                c = c + 1
             end
         end
         return false
@@ -201,7 +201,7 @@ class Othello
                 if @board[row][col+c] == disc
                     return true
                 end
-                c++
+                c = c + 1
             end
         end
         return false
@@ -226,7 +226,7 @@ class Othello
                 if @board[row+c][col] == disc
                     return true
                 end
-                c++
+                c = c + 1
             end
         end
         return false
@@ -251,7 +251,7 @@ class Othello
                 if @board[row+c][col+c] == disc
                     return true
                 end
-                c++
+                c = c + 1
             end
         end
         return false
@@ -276,7 +276,7 @@ class Othello
                 if @board[row+c][col-c] == disc
                     return true
                 end
-                c++
+                c = c + 1
             end
         end
         return false
