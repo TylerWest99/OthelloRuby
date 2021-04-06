@@ -96,9 +96,9 @@ class Othello
             notDisc = "B"
         end
 
-        if row-c >= min && this.board[row-c][col] == notDisc
-            while row-c >= min && this.board[row-c][col] != "-"
-                if this.board[row-c][col] == disc
+        if row-c >= min && @board[row-c][col] == notDisc
+            while row-c >= min && @board[row-c][col] != "-"
+                if @board[row-c][col] == disc
                     return true
                 end
                 c++
@@ -121,15 +121,15 @@ class Othello
             notDisc = "B"
         end
 
-        if col+c <= max && row-c >= min && this.board[row-c][col+c] == notDisc
-            while col+c <= max && row-c >= min && this.board[row-c][col+c] != "-"
-                if this.board[row-c][col+c] == disc
+        if col+c <= max && row-c >= min && @board[row-c][col+c] == notDisc
+            while col+c <= max && row-c >= min && @board[row-c][col+c] != "-"
+                if @board[row-c][col+c] == disc
                     return true
                 end
                 c++
             end
         end
-        return false;
+        return false
     end
 
     #Top Left
@@ -146,9 +146,9 @@ class Othello
             notDisc = "B"
         end
     
-        if col-c >= min && row-c >= min && this.board[row-c][col-c] == notDisc
-            while col-c >= min && row-c >= min && this.board[row-c][col-c] != "-"
-                if this.board[row-c][col-c] == disc
+        if col-c >= min && row-c >= min && @board[row-c][col-c] == notDisc
+            while col-c >= min && row-c >= min && @board[row-c][col-c] != "-"
+                if @board[row-c][col-c] == disc
                     return true
                 end
                 c++
@@ -171,9 +171,9 @@ class Othello
             notDisc = "B"
         end
     
-        if col-c >= min && this.board[row][col-c] == notDisc
-            while col-c >= min && this.board[row][col-c] != "-"
-                if this.board[row][col-c] == disc
+        if col-c >= min && @board[row][col-c] == notDisc
+            while col-c >= min && @board[row][col-c] != "-"
+                if @board[row][col-c] == disc
                     return true
                 end
                 c++
@@ -196,9 +196,9 @@ class Othello
             notDisc = "B"
         end
     
-        if col+c <= max && this.board[row][col+c] == notDisc
-            while col+c <= max && this.board[row][col+c] != "-"
-                if this.board[row][col+c] == disc
+        if col+c <= max && @board[row][col+c] == notDisc
+            while col+c <= max && @board[row][col+c] != "-"
+                if @board[row][col+c] == disc
                     return true
                 end
                 c++
@@ -221,9 +221,9 @@ class Othello
             notDisc = "B"
         end
 
-        if row+c <= max && this.board[row+c][col] == notDisc
-            while row+c <= max && this.board[row+c][col] != "-"
-                if this.board[row+c][col] == disc)
+        if row+c <= max && @board[row+c][col] == notDisc
+            while row+c <= max && @board[row+c][col] != "-"
+                if @board[row+c][col] == disc
                     return true
                 end
                 c++
@@ -246,9 +246,9 @@ class Othello
             notDisc = "B"
         end
 
-        if row+c <= max && col+c <= max && this.board[row+c][col+c] == notDisc
-            while row+c <= max && col+c <= max && this.board[row+c][col+c] != "-"
-                if this.board[row+c][col+c] == disc
+        if row+c <= max && col+c <= max && @board[row+c][col+c] == notDisc
+            while row+c <= max && col+c <= max && @board[row+c][col+c] != "-"
+                if @board[row+c][col+c] == disc
                     return true
                 end
                 c++
@@ -271,9 +271,9 @@ class Othello
             notDisc = "B"
         end
 
-        if row+c <= max && col-c >= min && this.board[row+c][col-c] == notDisc
-            while row+c <= max && col-c >= min && this.board[row+c][col-c] != "-"
-                if this.board[row+c][col-c] == disc
+        if row+c <= max && col-c >= min && @board[row+c][col-c] == notDisc
+            while row+c <= max && col-c >= min && @board[row+c][col-c] != "-"
+                if @board[row+c][col-c] == disc
                     return true
                 end
                 c++
