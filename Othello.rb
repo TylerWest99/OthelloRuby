@@ -58,13 +58,228 @@ class Othello
     def initializeBoard()
 
         # TO DO: COMPLETE THIS METHOD
-
+        maxMid = @size / 2
+        minMid = @size / 2 - 1
+        for i in 0..size-1
+            for j in 0..size-1
+                if i == maxMid && j == maxMid
+                    @board[i][j] = "B"
+                elsif i == minMid && j == minMid
+                    @board[i][j] = "B"
+                elsif (i == minMid || i == maxMid) && (j == maxMid || j == minMid)
+                    @board[i][j] = "W"
+                else
+                    @board[i][j] = "-";
+                end
+            end
+        end
     end
 
     # Returns true if placing the disc of current player at row,col is valid;
     # else returns false
     def isValidMove(row, col)
         return isValidMoveForDisc(row, col, @disc)
+    end
+
+    #functions for seeing if moves are valid
+    #Top
+    def canMoveTop(row,col,disc)
+        max = @size -1
+        min = 0
+        notDisc = ""
+        c = 1
+
+        if disc == "B"
+            notDisc = "W"
+        end
+        if disc == "W"
+            notDisc = "B"
+        end
+
+        if row-c >= min && this.board[row-c][col] == notDisc
+            while row-c >= min && this.board[row-c][col] != "-"
+                if this.board[row-c][col] == disc
+                    return true
+                end
+                c++
+            end
+        end
+        return false
+    end
+
+    #Top Right 
+    def canMoveTopRight(row,col,disc)
+        max = @size -1
+        min = 0
+        notDisc = ""
+        c = 1
+
+        if disc == "B"
+            notDisc = "W"
+        end
+        if disc == "W"
+            notDisc = "B"
+        end
+
+        if col+c <= max && row-c >= min && this.board[row-c][col+c] == notDisc
+            while col+c <= max && row-c >= min && this.board[row-c][col+c] != "-"
+                if this.board[row-c][col+c] == disc
+                    return true
+                end
+                c++
+            end
+        end
+        return false;
+    end
+
+    #Top Left
+    def canMoveTopLeft(row,col,disc)
+        max = @size -1
+        min = 0
+        notDisc = ""
+        c = 1
+    
+        if disc == "B"
+            notDisc = "W"
+        end
+        if disc == "W"
+            notDisc = "B"
+        end
+    
+        if col-c >= min && row-c >= min && this.board[row-c][col-c] == notDisc
+            while col-c >= min && row-c >= min && this.board[row-c][col-c] != "-"
+                if this.board[row-c][col-c] == disc
+                    return true
+                end
+                c++
+            end
+        end
+        return false
+    end
+
+    #Left
+    def canMoveLeft(row,col,disc)
+        max = @size -1
+        min = 0
+        notDisc = ""
+        c = 1
+    
+        if disc == "B"
+            notDisc = "W"
+        end
+        if disc == "W"
+            notDisc = "B"
+        end
+    
+        if col-c >= min && this.board[row][col-c] == notDisc
+            while col-c >= min && this.board[row][col-c] != "-"
+                if this.board[row][col-c] == disc
+                    return true
+                end
+                c++
+            end
+        end
+        return false
+    end
+
+    #Right
+    def canMoveRight(row,col,disc)
+        max = @size -1
+        min = 0
+        notDisc = ""
+        c = 1
+    
+        if disc == "B"
+            notDisc = "W"
+        end
+        if disc == "W"
+            notDisc = "B"
+        end
+    
+        if col+c <= max && this.board[row][col+c] == notDisc
+            while col+c <= max && this.board[row][col+c] != "-"
+                if this.board[row][col+c] == disc
+                    return true
+                end
+                c++
+            end
+        end
+        return false
+    end
+
+    #Bottom
+    def canMoveBottom(row,col,disc)
+        max = @size -1
+        min = 0
+        notDisc = ""
+        c = 1
+    
+        if disc == "B"
+            notDisc = "W"
+        end
+        if disc == "W"
+            notDisc = "B"
+        end
+
+        if row+c <= max && this.board[row+c][col] == notDisc
+            while row+c <= max && this.board[row+c][col] != "-"
+                if this.board[row+c][col] == disc)
+                    return true
+                end
+                c++
+            end
+        end
+        return false
+    end
+
+    #Bottom Right
+    def canMoveBottomRight(row,col,disc)
+        max = @size -1
+        min = 0
+        notDisc = ""
+        c = 1
+    
+        if disc == "B"
+            notDisc = "W"
+        end
+        if disc == "W"
+            notDisc = "B"
+        end
+
+        if row+c <= max && col+c <= max && this.board[row+c][col+c] == notDisc
+            while row+c <= max && col+c <= max && this.board[row+c][col+c] != "-"
+                if this.board[row+c][col+c] == disc
+                    return true
+                end
+                c++
+            end
+        end
+        return false
+    end
+
+    #Bottom Left
+    def canMoveBottomLeft(row,col,disc)
+        max = @size -1
+        min = 0
+        notDisc = ""
+        c = 1
+    
+        if disc == "B"
+            notDisc = "W"
+        end
+        if disc == "W"
+            notDisc = "B"
+        end
+
+        if row+c <= max && col-c >= min && this.board[row+c][col-c] == notDisc
+            while row+c <= max && col-c >= min && this.board[row+c][col-c] != "-"
+                if this.board[row+c][col-c] == disc
+                    return true
+                end
+                c++
+            end
+        end
+        return false
     end
 
     # Returns true if placing the specified disc at row,col is valid;
