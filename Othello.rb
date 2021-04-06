@@ -436,14 +436,14 @@ class Othello
         # TO DO: COMPLETE THIS PART OF THE METHOD
         for i in 0..@size-1
             for j in 0..@size-1
-                if isValidMoveForDisc(i,j,disc) && this.board[i][j] == "-"
+                if isValidMoveForDisc(i,j,disc) && @board[i][j] == "-"
                     return true
                 end
             end
         end
 
         # DO NOT DELETE - if control reaches this statement, then a valid move is not available
-        return false;
+        return false
     end
 
     # Returns true if the board is fully occupied with discs; else returns false
