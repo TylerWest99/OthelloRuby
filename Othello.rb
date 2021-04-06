@@ -1,6 +1,6 @@
 #
 # Othello Game Class
-# Author(s): Your Name(s)
+# Author(s): Tyler West
 #
 
 class Othello
@@ -434,6 +434,13 @@ class Othello
     def isValidMoveAvailableForDisc(disc)
 
         # TO DO: COMPLETE THIS PART OF THE METHOD
+        for i in 0..@size-1
+            for j in 0..@size-1
+                if isValidMoveForDisc(i,j,disc) && this.board[i][j] == "-"
+                    return true
+                end
+            end
+        end
 
         # DO NOT DELETE - if control reaches this statement, then a valid move is not available
         return false;
@@ -444,7 +451,22 @@ class Othello
 
         # TO DO: COMPLETE THIS PART OF THE METHOD
 
-        return true;
+        counter = 0
+        totalSpaces = @size * @size
+
+        for i in 0..@size-1
+            for j in 0..@size-1
+                if @board[i][j] != "-"
+                    counter = counter + 1
+                end
+            end
+        end
+
+        if counter == totalSpaces
+            return true
+        end
+
+		return false
     end
 
     # Returns true if either the board is full or a valid move is not available
@@ -460,6 +482,29 @@ class Othello
     def checkWinner()
 
         # TO DO: COMPLETE THIS METHOD
+        bCounter = 0
+        wCounter = 0
+
+        for i in 0..@size-1
+            for j in 0..@size-1
+                if @board[i][j] == "B"
+                    bCounter = bCounter + 1
+                end
+                if @board[i][j] == "W"
+                    wCounter = wCounter + 1
+                end
+            end
+        end
+
+        if wCounter > bCounter
+            return WHITE;
+        end
+        if bCounter > wCounter
+            return BLACK
+        end
+        if bCounter == wCounter
+            return TIE
+        end
 
     end
 
