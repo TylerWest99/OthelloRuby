@@ -287,6 +287,30 @@ class Othello
     def isValidMoveForDisc(row, col, disc)
 
         # TO DO: COMPLETE THIS PART OF THE METHOD
+        if canMoveTop(row,col,disc)
+            return true
+        end
+        if canMoveTopRight(row,col,disc)
+            return true
+        end
+        if canMoveTopLeft(row,col,disc)
+            return true
+        end
+        if canMoveLeft(row,col,disc)
+            return true
+        end
+        if canMoveRight(row,col,disc)
+            return true
+        end
+        if canMoveBottom(row,col,disc)
+            return true
+        end
+        if canMoveBottomLeft(row,col,disc)
+            return true
+        end
+        if canMoveBottomRight(row,col,disc)
+            return true
+        end
 
         # DO NOT DELETE - if control reaches this statement, then it is not a valid move
         return false
